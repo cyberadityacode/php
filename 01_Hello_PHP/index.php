@@ -12,6 +12,8 @@
     echo "Hello World!"
 
     ?>
+
+    <h2><a href="01_lesson.php">Lesson 1</a></h2>
 </body>
 
 </html>

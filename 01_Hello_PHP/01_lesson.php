@@ -16,6 +16,7 @@
     ?>
     <p>This is not recommended because, its messy and doesn't have automated syntax checking of html tag</p>
     <p>Therefore, split up your condition, using opening and closing php</p>
+    <h2><a href="02_lesson.php">Lesson 2</a></h2>
 </body>
 
 </html>

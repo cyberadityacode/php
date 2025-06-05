@@ -7,9 +7,9 @@
     <title>Lesson 3 - Variables in PHP</title>
 </head>
 
-<>
-    <h1>Heading HTML h1</h1>
-    <p>Hello paragraph</p>
+
+    <h1>Heading HTML h1 tag</h1>
+    <p>Hello Paragraph aditya</p>
     <?php echo "Hello" ?>
 
     <p>This is <?php echo "awesome" ?> paragraph </p>
@@ -42,7 +42,7 @@
     // $objectType = new Car();
 
     ?>
-
+    <h2><a href="04_defaultVariables.php">Lesson 04 - Default Variables in PHP</a></h2>
     </body>
 
 </html>

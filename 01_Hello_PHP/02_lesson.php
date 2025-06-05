@@ -19,6 +19,7 @@
     //Comment
     /* Multiple Line Comment */
     ?>
+    <h2><a href="03_Variable.php">Lesson 3 - Variables</a></h2>
 </body>
 
 </html>
