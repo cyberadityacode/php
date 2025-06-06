@@ -100,4 +100,30 @@ echo "Match result: $resultMatch\n"; // "String 1" (matches strictly)
 
 
 ```
+# TASK - User Role-Based Dashboard
+
+Build a simple interface where a user selects a role (admin, editor, or viewer) from a dropdown in React. Based on the selected role:
+
+- React will send a numeric code to the PHP backend.
+
+- The backend will use a match expression to return a role-based welcome message.
+
+- React will display the response.
+
+## Components
+* **Frontend (React)**
+
+- Dropdown for role selection.
+
+- switch statement to convert selected string role → numeric code.
+
+- Sends the code to the backend using fetch (POST).
+
+- Displays the response message from PHP.
+
+* **Backend (PHP)**
+
+- Accepts POST request with a role code.
+
+- Uses match to return the appropriate message.
 
