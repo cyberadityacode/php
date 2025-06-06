@@ -1,5 +1,19 @@
 <?php
 
+
+// Allow requests from any origin (for development only)
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
+
+// If this is a preflight OPTIONS request, return 200 and exit
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
+
+
+
 // var_dump($_SERVER["REQUEST_METHOD"]);
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -30,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     }
 
-}else{
+} else {
     // if user tries to access the formHandler.php via URL directly. redirect to index page
     header("Location: ../index.php");
 }

@@ -1,35 +1,102 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    age: "",
+    favouritepet: "",
+  });
+  const [response, setResponse] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Validation onSubmit
+
+    if (!formData.username && !formData.email) {
+      setResponse("Please enter Username and Email");
+      return;
+    }
+
+    // Lets talk to our Server
+
+    try {
+      const res = await fetch(
+        "http://localhost/php/02_Form_PHP_React/backend/formHandler.php",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams(formData),
+        }
+      );
+      const text = await res.text();
+      setResponse(text);
+    } catch (error) {
+      console.error(error);
+      setResponse("An error occured :", error.message);
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="username">Username</label>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          placeholder="Enter username..."
+          value={formData.username}
+          onChange={handleChange}
+        />
 
-export default App
+        <label htmlFor="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Enter Email..."
+          value={formData.email}
+          onChange={handleChange}
+        />
+
+        <label htmlFor="age">Age</label>
+        <input
+          type="number"
+          name="age"
+          id="age"
+          placeholder="Enter Age..."
+          value={formData.age}
+          onChange={handleChange}
+        />
+
+        <label htmlFor="favouritepet">Favourite Pet</label>
+        <select
+          name="favouritepet"
+          id="favouritepet"
+          value={formData.favouritepet}
+          onChange={handleChange}
+        >
+          <option value="None">None</option>
+          <option value="cow">Cow</option>
+          <option value="dog">Dog</option>
+          <option value="cat">Cat</option>
+        </select>
+
+        <button type="submit">Submit</button>
+      </form>
+      <h1>Server Response in Plain Text: {response}</h1>
+
+      <h1>Server Reponse in HTML</h1>
+
+      <div dangerouslySetInnerHTML={{ __html: response }} />
+    </div>
+  );
+}
