@@ -128,3 +128,15 @@ It compares two values and returns:
 
 1 if greater
 ```
+
+
+---
+
+
+# Challege 04 - Form Data Handling
+
+Create an array from $_POST values (simulate if needed).
+
+Validate each field (e.g., required, email format).
+
+Display validation errors using arrays.
