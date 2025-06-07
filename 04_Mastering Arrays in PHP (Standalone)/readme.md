@@ -99,3 +99,13 @@ Calculate the total cost after tax
 Write a function to add a new product or update quantity if it exists.
 Write a function to remove a product by name.
 
+---
+
+# Challenge02
+<!-- 
+Transform API-like Data: Simulate a JSON response from an API: 
+-->
+
+$json = '[{"id":1,"name":"John"},{"id":2,"name":"Jane"}]';
+
+
