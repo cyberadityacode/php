@@ -42,7 +42,7 @@ If the arrays contain numeric keys, the values are appended and the keys are rei
 
 > Use + (array union) if you want to preserve keys and not overwrite values:
 
-- **array_merge_recursive** - 
+- **array_merge_recursive** -
 
 Merges arrays recursively.
 
@@ -70,7 +70,6 @@ array_map(callable $callback, array $array1, array ...$arrays): array
 $callback – A function to apply to each element.
 $array1, ...$arrays – One or more arrays to process in parallel.
 
-
 - **array_reduce** reduces an array to a single value by repeatedly applying a callback function.
 
 array_reduce(array $array, callable $callback, mixed $initial = null): mixed
@@ -84,4 +83,19 @@ $carry (the running total/result so far)
 $item (the current array element)
 
 $initial – (optional) Initial value for the carry/result.
+
+---
+
+# Challenge01
+
+You have a list of products. Each product has a name and a price.
+You want to:
+
+Filter out products with invalid or missing prices
+
+Apply tax (e.g., 10%) to each price
+
+Calculate the total cost after tax
+Write a function to add a new product or update quantity if it exists.
+Write a function to remove a product by name.
 
