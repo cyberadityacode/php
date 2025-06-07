@@ -34,5 +34,23 @@ Use these PHP functions on different examples:
 
 - **array_pop** - removes the last element of an array.
 - **array_shift** - removes the first element of an array.
+- **array_merge** - merges two or more arrays
 
-, array_merge, array_slice, in_array, array_keys, array_values, array_filter, array_map
+If the input arrays have the same string keys, then the later value will overwrite the earlier one.
+
+If the arrays contain numeric keys, the values are appended and the keys are reindexed.
+
+> Use + (array union) if you want to preserve keys and not overwrite values:
+
+- **array_merge_recursive** - 
+
+Merges arrays recursively.
+
+When two arrays have the same string key, both values are kept and grouped into an array.
+
+Note: When keys collide, the values are wrapped in an array rather than being overwritten or merged deeply.
+
+
+
+
+, array_slice, in_array, array_keys, array_values, array_filter, array_map
