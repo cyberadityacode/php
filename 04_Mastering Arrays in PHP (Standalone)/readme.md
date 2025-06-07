@@ -102,12 +102,12 @@ Write a function to remove a product by name.
 ---
 
 # Challenge02
-<!-- 
-Transform API-like Data: Simulate a JSON response from an API: 
+
+<!--
+Transform API-like Data: Simulate a JSON response from an API:
 -->
 
 $json = '[{"id":1,"name":"John"},{"id":2,"name":"Jane"}]';
-
 
 ---
 
@@ -118,6 +118,7 @@ Array of players with name and score.
 Sort descending by score using usort.
 
 Return top 3 players.
+
 ```
 <=> is called the "spaceship operator".
 It compares two values and returns:
@@ -129,14 +130,20 @@ It compares two values and returns:
 1 if greater
 ```
 
-
 ---
-
 
 # Challege 04 - Form Data Handling
 
-Create an array from $_POST values (simulate if needed).
+Create an array from $\_POST values (simulate if needed).
 
 Validate each field (e.g., required, email format).
 
 Display validation errors using arrays.
+
+---
+
+# ADVANCED PHP ARRAY CHALLENGES
+
+## Grouping and Aggregation
+
+Given an array of transactions with type (credit/debit), amount, group them by type and calculate total for each.
