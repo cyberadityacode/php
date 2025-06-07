@@ -109,3 +109,22 @@ Transform API-like Data: Simulate a JSON response from an API:
 $json = '[{"id":1,"name":"John"},{"id":2,"name":"Jane"}]';
 
 
+---
+
+# Challenge 3 - Build a Leaderboard
+
+Array of players with name and score.
+
+Sort descending by score using usort.
+
+Return top 3 players.
+```
+<=> is called the "spaceship operator".
+It compares two values and returns:
+
+-1 if left is less than right
+
+0 if equal
+
+1 if greater
+```
