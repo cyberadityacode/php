@@ -147,3 +147,9 @@ Display validation errors using arrays.
 ## Grouping and Aggregation
 
 Given an array of transactions with type (credit/debit), amount, group them by type and calculate total for each.
+
+
+## Flatten Multidimensional Array
+- ['a' => ['b' => ['c' => 1]]]
+- Into: ['a.b.c' => 1] (recursive function challenge)
+
