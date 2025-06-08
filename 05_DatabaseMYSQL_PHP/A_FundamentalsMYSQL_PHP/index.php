@@ -49,7 +49,14 @@
         </form>
     </div>
 
+    <div>
+        <h1>Search Comments made by user</h1>
 
+        <form action="search.php" method="post">
+            <input type="text" name="usersearch" placeholder="Search User">
+            <button type="submit">Search</button>
+        </form>
+    </div>
 
 </body>
 
