@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.login-section, .signup-section{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login-section form, .signup-section form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-section form button ,.signup-section form button {
+    padding: 5px;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    float: left;
+}
+
+.form-error{
+    color: red;
+}
+.signup-success{
+    color: green;
+}
