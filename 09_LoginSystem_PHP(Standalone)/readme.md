@@ -7,4 +7,4 @@
 
 4. Create includes/login.inc.php and includes/signup.inc.php
 
-5. 
+5. Create MVC for the login and signup and proceed accordingly.

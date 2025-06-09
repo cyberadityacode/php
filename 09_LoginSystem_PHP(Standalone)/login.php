@@ -1,6 +1,7 @@
 <?php
-require_once "includes/signup_view.inc.php";
 require_once "includes/config_session.inc.php";
+require_once "includes/signup_view.inc.php";
+require_once "includes/login_view.inc.php";
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +26,10 @@ require_once "includes/config_session.inc.php";
                 <input type="password" name="password" placeholder="Enter your password">
                 <button type="submit">Login</button>
             </form>
+
+            <?php
+            checkLoginErrors();
+            ?>
         </section>
 
         <section class="signup-section">
