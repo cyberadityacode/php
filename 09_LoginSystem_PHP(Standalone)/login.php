@@ -17,15 +17,25 @@ require_once "includes/login_view.inc.php";
 <body>
 
     <main>
-
-
+        <h3>
+            <?php
+            outputUsername();
+            ?>
+        </h3>
         <section class="login-section">
-            <h4>Login System PHP (Standalone)</h4>
-            <form action="includes/login.inc.php" method="post">
-                <input type="text" name="username" placeholder="Enter your username">
-                <input type="password" name="password" placeholder="Enter your password">
-                <button type="submit">Login</button>
-            </form>
+
+            <?php
+            if (!isset($_SESSION["user_id"])) { ?>
+                <h4>Login System PHP (Standalone)</h4>
+                <form action="includes/login.inc.php" method="post">
+                    <input type="text" name="username" placeholder="Enter your username">
+                    <input type="password" name="password" placeholder="Enter your password">
+                    <button type="submit">Login</button>
+                </form>
+                <?php
+            }
+            ?>
+
 
             <?php
             checkLoginErrors();
@@ -46,7 +56,17 @@ require_once "includes/login_view.inc.php";
             checkSignupError();
             ?>
         </section>
+
+
+
     </main>
+
+    <h4>Logout </h4>
+    <form action="includes/logout.inc.php" method="post">
+
+        <button type="submit">Logout</button>
+    </form>
+
 </body>
 
 </html>
