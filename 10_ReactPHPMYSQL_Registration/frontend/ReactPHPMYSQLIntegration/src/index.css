@@ -1,0 +1,27 @@
+.heading-registration {
+  text-align: center;
+  display: flex;
+}
+
+.heading-registration div {
+  display: flex;
+  flex-direction: column;
+}
+
+.registration-form {
+  display: flex;
+  justify-content: center;
+}
+
+.registration-form label{
+    margin-right: 20px;
+}
+
+.registration-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+form select {
+  margin-bottom: 10px;
+}
