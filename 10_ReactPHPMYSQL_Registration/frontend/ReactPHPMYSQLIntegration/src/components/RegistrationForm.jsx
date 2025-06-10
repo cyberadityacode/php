@@ -11,6 +11,8 @@ export default function RegistrationForm() {
   });
 
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [responseMessage, setResponseMessage] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,13 +38,22 @@ export default function RegistrationForm() {
       console.log("good to proceed form to the server");
 
       try {
-        await fetch("/api/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        });
+        setIsSubmitting(true);
+        const res = await fetch(
+          "http://localhost/php/10_ReactPHPMYSQL_Registration/backend/includes/registration.inc.php",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
+          }
+        );
+        const data = await res.json();
+        console.log(data);
+        setResponseMessage(data.message);
       } catch (error) {
         console.error("Form Submission Failed!", error);
+      } finally {
+        setIsSubmitting(false);
       }
 
       setFormData({
@@ -114,7 +125,7 @@ export default function RegistrationForm() {
         </div>
 
         <div>
-          <label htmlFor="dob">Profession:</label>
+          <label htmlFor="profession">Profession:</label>
           <select
             name="profession"
             id="profession"
@@ -130,8 +141,12 @@ export default function RegistrationForm() {
             <span style={{ color: "red" }}>{errors.profession}</span>
           )}
         </div>
-        <button type="submit">Register</button>
+        <button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? "Submitting..." : "Register"}
+        </button>
       </form>
+
+      {responseMessage && <p style={{ color: "green" }}>{responseMessage}</p>}
     </div>
   );
 }
