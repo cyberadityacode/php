@@ -18,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $data = json_decode(file_get_contents("php://input"), true);
 
+
     // Checking if required fields are set
     if (
         isset($data['username']) &&
@@ -28,23 +29,67 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     ) {
         // Sanitization and data assignment
 
-        $username = htmlspecialchars($data['username']);
+        $username = htmlspecialchars(trim($data['username']));
         $password = password_hash($data['password'], PASSWORD_DEFAULT);
-        $email = filter_var($data['email'], FILTER_SANITIZE_EMAIL);
+
+        $email = trim($data['email']);
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            http_response_code(422);
+            echo json_encode([
+                "status" => "error",
+                "message" => "Invalid email format"
+            ]);
+            exit();
+        }
+
         $dob = $data['dob'];
-        $profession = htmlspecialchars($data['profession']);
+        $profession = htmlspecialchars(trim($data['profession']));
 
 
         // Now its easy to insert this data into my database
 
-        // for now I am returning a success message as JSON
+        require_once "dbh.inc.php";
+        try {
+            $query = "INSERT INTO users(username,password,email, dob,profession ) VALUES(:username, :password, :email, :dob, :profession);";
+            $stmt = $pdo->prepare($query);
 
-        echo json_encode([
-            "status" => "success",
-            "message" => "User Registered Successfully!",
-        ]);
+            $stmt->execute([
+                ':username' => $username,
+                ':password' => $password,
+                ':email' => $email,
+                ':dob' => $dob,
+                ':profession' => $profession
 
-        
+            ]);
+            // for now I am returning a success message as JSON
+
+            echo json_encode([
+                "status" => "success",
+                "message" => "User Registered Successfully!",
+            ]);
+
+
+        } catch (PDOException $e) {
+            http_response_code(500);
+
+            if ($e->getCode() === '23000') {
+                echo json_encode([
+                    "status" => "error",
+                    "message" => "This email is already registered"
+                ]);
+            } else {
+                error_log("DB Error: " . $e->getMessage());
+                echo json_encode([
+                    "status" => "error",
+                    "message" => "Something went wrong. Please try again later."
+                ]);
+            }
+
+
+            exit();
+        }
+
+
 
     } else {
         http_response_code(400);
@@ -56,7 +101,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 } else {
     // Not a POST request dear
+    http_response_code(405);
+    echo json_encode([
+        "status" => "error",
+        "message" => "Method Not Allowed"
+    ]);
 
-    header("Location: http://localhost:5173/");
-    exit();
 }
