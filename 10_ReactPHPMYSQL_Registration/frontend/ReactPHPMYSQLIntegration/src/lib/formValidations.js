@@ -11,3 +11,11 @@ export const validate = (formData) => {
   }
   return newErrors;
 };
+
+export const validateLogin = (formData) => {
+  const loginErrors = [];
+  if (!formData.username) loginErrors.username = "Username is Required";
+  if (!formData.password) loginErrors.password = "Password is Required";
+
+  return loginErrors;
+};
