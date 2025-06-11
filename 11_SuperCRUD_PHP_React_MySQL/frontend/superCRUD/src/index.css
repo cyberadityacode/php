@@ -1,0 +1,95 @@
+.input-control {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.input-control form {
+  display: flex;
+}
+.input-control form input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: large;
+}
+.input-control form button {
+  padding: 15px;
+  border-radius: 10px;
+}
+.search-task input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: large;
+}
+
+table {
+  width: 100%;
+  margin: 10px;
+}
+
+tr:hover {
+  background-color: gainsboro;
+}
+.list-task {
+  margin: 0 20px;
+}
+
+.model-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.model {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+.model h2{
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.model textarea , .model input{
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  resize: vertical;
+}
+
+.model-actions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.model-actions button {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.model-actions button:first-child {
+  background-color: #ccc;
+}
+
+.model-actions button:last-child {
+  background-color: #4CAF50;
+  color: white;
+}
