@@ -58,11 +58,12 @@ export default function RegisterUser() {
     // I will send formData to an API here
 
     try {
-      const response = await registerUser("/signup", formData);
+      const response = await registerUser("backend/signup.php", formData);
       console.log("received response from our php server");
       console.log(response);
     } catch (error) {
       setErrors(error.message || "Something went wrong");
+      console.error("POST Request Error: ", error.response?.data || error.message);
     } finally {
     }
 
