@@ -1,11 +1,32 @@
-import React from 'react'
-import RegisterUser from './components/RegisterUser'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import RegisterUser from "./components/RegisterUser";
+import LoginPage from "./pages/LoginPage";
+import Dashboard from "./pages/Dashboard";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 export default function App() {
   return (
-    <div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LoginPage /> } />
+        <Route path="/signup" element={<RegisterUser />} />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
+    /*  <div>
       <h1>Signup</h1>
       <RegisterUser />
-    </div>
-  )
+
+      <br />
+
+      <LoginPage />
+    </div> */
+  );
 }
