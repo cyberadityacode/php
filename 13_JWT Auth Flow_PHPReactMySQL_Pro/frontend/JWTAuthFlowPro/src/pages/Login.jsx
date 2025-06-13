@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 
 export default function Login() {
   const [loginForm, setLoginForm] = useState({
     username: "",
     password: "",
   });
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setLoginForm((prev) => ({
@@ -34,7 +35,8 @@ export default function Login() {
       if (data.status === "success") {
         // store token in local storage
         localStorage.setItem("token", data.token);
-        alert("login successfull");
+        console.log("login successfull");
+        navigate("/dashboard");
       } else {
         alert(data.message || "Login Failed");
       }
