@@ -30,7 +30,7 @@ export default function LoginRegisterPage() {
     e.preventDefault();
     try {
       const res = await fetch(
-        "https://f8k7xb9l-80.inc1.devtunnels.ms/php/15_JWT%20Auth%20Flow_CRUD%20-REFINED/backend/public/login.php",
+        "http://localhost/php/15_JWT%20Auth%20Flow_CRUD%20-REFINED/backend/public/login.php",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -53,7 +53,7 @@ export default function LoginRegisterPage() {
     e.preventDefault();
     try {
       const res = await fetch(
-        "https://f8k7xb9l-80.inc1.devtunnels.ms/php/15_JWT%20Auth%20Flow_CRUD%20-REFINED/backend/public/register.php",
+        "http://localhost/php/15_JWT%20Auth%20Flow_CRUD%20-REFINED/backend/public/register.php",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -74,7 +74,9 @@ export default function LoginRegisterPage() {
   return (
     <div style={styles.container}>
       <div style={styles.card}>
-        <h3 style={{textAlign:'center'}}>JWT Auth Flow -React,PHP & MYSQL</h3>
+        <h3 style={{ textAlign: "center" }}>
+          JWT Auth Flow -React,PHP & MYSQL
+        </h3>
         <div style={styles.tabHeader}>
           <button
             style={{
