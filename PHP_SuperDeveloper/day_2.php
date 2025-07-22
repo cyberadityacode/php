@@ -43,3 +43,12 @@ $user1_day2->displayInfo();
 $user1_day2->changeRole("Administrator");
 
 $user1_day2->displayInfo();
+
+
+require_once 'day_3_Constant.php';
+
+if (defined("ADITYA_DUBEY")) {
+    echo "My Constant is Defined " . ADITYA_DUBEY;
+} else {
+    echo "Contant is not Defined";
+}
