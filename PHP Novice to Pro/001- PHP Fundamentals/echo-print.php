@@ -60,4 +60,42 @@ echo '<br>';
 // modulus (remainder) operator
 $modulus_remainder = num%2;
 echo $modulus_remainder; #output 1 because remainder is 1
+echo '<br>';
+
+// Assignment operator
+
+echo $modulus_remainder +=6;
+
+
+echo '<br>';
+
+$a = 30;
+$b = "30";
+
+// if($a == $b):  //compares just value
+if($a === $b): # compare value and type
+    echo "A is smaller";
+endif;
+
+echo "Here is another statement";
+
+if(true xor true){
+    echo "exclusive or";
+}
+/*
+| Operator | Meaning      | Returns `true` when      |
+| -------- | ------------ | ------------------------ |
+| `&&`     | Logical AND  | Both conditions are true |
+| `or`     | Logical OR   | At least one is true     |
+| `xor`    | Exclusive OR | Exactly one is true      |
+*/
+
+
+
+
+
+
+
+echo "<br />";
+
 
