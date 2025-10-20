@@ -11,5 +11,18 @@ array_push($test_array, "three");
 
 echo "<pre>";
 print_r($test_array);
+echo "<pre />";
 
+echo "<br />";
 
+array_shift($test_array); //removes one from first element
+
+echo "<pre>";
+print_r($test_array);
+echo "</pre>";
+
+array_unshift($test_array, "one"); //add one in element 1
+
+echo "<pre>";
+print_r($test_array);
+echo "</pre>";
