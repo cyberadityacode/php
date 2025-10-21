@@ -14,7 +14,16 @@ $array_assoc_b = [
     'a' => 'red',
     'c' => 'blue'
 ];
+echo "<pre>";
 print_r(array_intersect($array_a, $array_b));
 
 echo "<pre>";
 print_r(array_intersect_key($array_assoc_a,$array_assoc_b)); //compares key presence only not values
+
+
+// Commmon interest of user
+
+$user_a = ['php', 'js','react'];
+$user_b = ['css', 'react', 'php', 'sql'];
+
+echo "Common Interest - ". implode(", ", array_intersect($user_a, $user_b));
