@@ -27,3 +27,31 @@ $user_a = ['php', 'js','react'];
 $user_b = ['css', 'react', 'php', 'sql'];
 
 echo "Common Interest - ". implode(", ", array_intersect($user_a, $user_b));
+
+
+/* Strict matching records */
+
+$old_data = [
+    "username" => "aditya",
+    "role" => "editor",
+    "status" => "active"
+];
+
+$new_data = [
+    "username" => "aditya",
+    "role" => "admin",
+    "status" => "active"
+];
+
+
+$matched = array_intersect_assoc($old_data,$new_data);
+
+print_r($matched);
+
+/* 
+Case-insensitive Comparison (Using array_uintersect)
+*/
+$array1 = ["PHP", "JavaScript", "Python"];
+$array2 = ["php", "C++", "PYTHON"];
+
+print_r(array_uintersect($array1, $array2, "strcasecmp"));
