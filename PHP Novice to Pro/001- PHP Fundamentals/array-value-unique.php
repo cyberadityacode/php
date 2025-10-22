@@ -15,3 +15,4 @@ print_r($just_values);
 
 $unique_values = array_unique($test_val);
 print_r($unique_values);
+
