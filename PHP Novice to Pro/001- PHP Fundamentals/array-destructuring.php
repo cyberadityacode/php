@@ -29,3 +29,29 @@ echo "<br />Day: $day, Month: $month, Year: $year";
 
 [$hour,$minute,$second] = explode(":", $timePart);
 echo "<br />Hour:$hour,Minute:$minute,Second:$second";
+
+// CSV handling
+
+$csvLine = 'John,Doe,30,Software Engineer,San Francisco';
+
+[$firstName, $lastName,$age, $jobTitle, $city] = str_getcsv($csvLine);
+
+echo "<br />Firstname: $firstName, City: $city";
+
+$userProfile = [
+    'full_name' => "$firstName $lastName",
+    'age' =>$age,
+    'profession' =>$jobTitle,
+    'location' =>$city
+];
+
+if(is_array($userProfile)){
+    echo "<pre>";
+    print_r($userProfile);
+    echo json_encode($userProfile); //or convert into json for frontend handling.
+}
+
+/* 
+str_getcsv and explode does similar work, but str_getcsv also trims space.
+*/
+
