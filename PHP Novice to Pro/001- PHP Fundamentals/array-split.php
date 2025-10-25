@@ -9,4 +9,6 @@ print_r($newStr);
 
 $chunkSplit = chunk_split($str,1,'..');
 echo "<pre>";
-print_r($chunkSplit);
+// print_r($chunkSplit);
+echo is_array($chunkSplit) ?  "Yes": "string";
+echo $chunkSplit;
