@@ -16,3 +16,9 @@ usort($arrayTest, function($a,$b){
 echo "Longest word is $arrayTest[0]";
 
 // one line function using reduce
+
+$longestWord = array_reduce(explode(' ',$stringTest), function($carry,$item){
+    return strlen($item) > strlen($carry) ? $item :$carry;
+});
+
+echo "<br /> Longest Word is $longestWord";
