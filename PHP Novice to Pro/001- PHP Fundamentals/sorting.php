@@ -71,3 +71,5 @@ usort($products, function($a,$b){
 print_r($products);
 
 // substr
+$str_test = "EMP139";
+echo substr($str_test,0, 3);
