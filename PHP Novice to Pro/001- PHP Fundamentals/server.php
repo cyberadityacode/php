@@ -28,3 +28,6 @@ print_r($_REQUEST);
 print_r($_SERVER);
 
 echo $_SERVER['PHP_SELF'];
+
+echo "<br />";
+echo $_SERVER['HTTPS'] ? "HTTPS Server" : "HTTP Server";
