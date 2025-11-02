@@ -32,3 +32,8 @@ if(isset($_FILES['image'])){
     }
 
 }
+
+
+$file_test = fopen("server.php", "r") or die("Unable to open file");
+echo "File Opened successfully!";
+echo ($file_test); // resource id
